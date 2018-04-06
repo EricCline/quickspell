@@ -30,7 +30,7 @@ class Dashboard extends Component {
     return (
       <div>
         <h2>Welcome to Quickspell!</h2>
-        <FilterForm onSubmit={() => this.submitFilter()}/>
+        <FilterForm onSubmit={this.submitFilter}/>
         <hr/>
         <form onSubmit={this.spellsToPdf}>
           <input type="submit" value="Save to PDF" />

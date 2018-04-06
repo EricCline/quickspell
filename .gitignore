@@ -2,3 +2,5 @@
 env
 db.sqlite3
 spells.csv
+*.swp
+webpack-stats.dev.json
