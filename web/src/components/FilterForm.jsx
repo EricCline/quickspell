@@ -8,7 +8,7 @@ class FilterForm extends Component {
     const classname = this.props.classname;
     const level = this.props.level;
     return (
-      <form onSubmit={this.props.onSubmit}>
+      <form>
         <div>
         <label>Class</label>
         <input
@@ -28,7 +28,6 @@ class FilterForm extends Component {
           placeholder="(optional)"
           onChange={(e) => this.props.updateLevel(e.target.value)}/>
         </div>
-        <input type="submit" value="Filter" />
       </form>
     );
   }
