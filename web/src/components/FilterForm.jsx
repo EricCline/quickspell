@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {dashboard} from "../actions";
+import {filterForm} from "../actions";
 
 class FilterForm extends Component {
 
@@ -44,10 +44,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     updateClassname: (classname) => {
-      dispatch(dashboard.updateClassname(classname));
+      dispatch(filterForm.updateClassname(classname));
     },
     updateLevel: (level) => {
-      dispatch(dashboard.updateLevel(level));
+      dispatch(filterForm.updateLevel(level));
     }
   }
 }
