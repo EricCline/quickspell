@@ -48,8 +48,8 @@ class Dashboard extends Component {
 const mapStateToProps = state => {
   return {
     spells: state.dashboard.spells,
-    classname: state.dashboard.classname,
-    level: state.dashboard.level,
+    classname: state.filterForm.classname,
+    level: state.filterForm.level,
   }
 }
 

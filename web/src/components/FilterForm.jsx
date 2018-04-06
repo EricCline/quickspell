@@ -36,8 +36,8 @@ class FilterForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    classname: state.dashboard.classname,
-    level: state.dashboard.level,
+    classname: state.filterForm.classname,
+    level: state.filterForm.level,
   }
 }
 
