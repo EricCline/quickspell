@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {TileLayout} from 'pui-react-tile-layout';
 
 import {dashboard} from "../actions";
-import Spell from './Spell';
+import SpellList from './SpellList';
 import FilterForm from './FilterForm';
 import FilterSubmit from './FilterSubmit';
 import PdfSubmit from './PdfSubmit';
@@ -24,10 +23,6 @@ class Dashboard extends Component {
     this.props.fetchSpells(this.props.classname, this.props.level);
   }
 
-  renderSpell(spell) {
-    return <Spell spell={spell} key={spell.name}/>
-  }
-
   render() {
     return (
       <div>
@@ -36,11 +31,7 @@ class Dashboard extends Component {
         <FilterSubmit onSubmit={this.submitFilter}/>
         <PdfSubmit onSubmit={this.spellsToPdf}/>
         <hr/>
-        <h3>Spells</h3>
-        <hr/>
-          <TileLayout columns={3}>
-            {this.props.spells.map(spell => (this.renderSpell(spell)))}
-          </TileLayout>
+        <SpellList spells={this.props.spells}/>
       </div>
     )
   }
