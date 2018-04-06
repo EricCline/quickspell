@@ -4,16 +4,11 @@ import {dashboard} from "../actions";
 
 class FilterForm extends Component {
 
-  submitFilter = (e) => {
-    e.preventDefault();
-    this.props.fetchSpells(this.props.classname, this.props.level);
-  }
-
   render() {
     const classname = this.props.classname;
     const level = this.props.level;
     return (
-      <form onSubmit={this.submitFilter}>
+      <form onSubmit={this.props.onSubmit}>
         <div>
         <label>Class</label>
         <input
@@ -48,9 +43,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSpells: (classname="", level="") => {
-      dispatch(dashboard.fetchSpells(classname, level));
-    },
     updateClassname: (classname) => {
       dispatch(dashboard.updateClassname(classname));
     },
