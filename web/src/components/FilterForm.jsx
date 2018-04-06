@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {dashboard} from "../actions";
+import {filterForm} from "../actions";
 
 class FilterForm extends Component {
 
@@ -8,7 +8,7 @@ class FilterForm extends Component {
     const classname = this.props.classname;
     const level = this.props.level;
     return (
-      <form onSubmit={this.props.onSubmit}>
+      <form>
         <div>
         <label>Class</label>
         <input
@@ -28,7 +28,6 @@ class FilterForm extends Component {
           placeholder="(optional)"
           onChange={(e) => this.props.updateLevel(e.target.value)}/>
         </div>
-        <input type="submit" value="Filter" />
       </form>
     );
   }
@@ -36,18 +35,18 @@ class FilterForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    classname: state.dashboard.classname,
-    level: state.dashboard.level,
+    classname: state.filterForm.classname,
+    level: state.filterForm.level,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     updateClassname: (classname) => {
-      dispatch(dashboard.updateClassname(classname));
+      dispatch(filterForm.updateClassname(classname));
     },
     updateLevel: (level) => {
-      dispatch(dashboard.updateLevel(level));
+      dispatch(filterForm.updateLevel(level));
     }
   }
 }

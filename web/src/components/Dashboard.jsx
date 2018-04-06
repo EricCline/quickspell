@@ -5,6 +5,8 @@ import {TileLayout} from 'pui-react-tile-layout';
 import {dashboard} from "../actions";
 import Spell from './Spell';
 import FilterForm from './FilterForm';
+import FilterSubmit from './FilterSubmit';
+import PdfSubmit from './PdfSubmit';
 
 
 class Dashboard extends Component {
@@ -30,11 +32,10 @@ class Dashboard extends Component {
     return (
       <div>
         <h2>Welcome to Quickspell!</h2>
-        <FilterForm onSubmit={this.submitFilter}/>
+        <FilterForm/>
+        <FilterSubmit onSubmit={this.submitFilter}/>
+        <PdfSubmit onSubmit={this.spellsToPdf}/>
         <hr/>
-        <form onSubmit={this.spellsToPdf}>
-          <input type="submit" value="Save to PDF" />
-        </form>
         <h3>Spells</h3>
         <hr/>
           <TileLayout columns={3}>
@@ -48,8 +49,8 @@ class Dashboard extends Component {
 const mapStateToProps = state => {
   return {
     spells: state.dashboard.spells,
-    classname: state.dashboard.classname,
-    level: state.dashboard.level,
+    classname: state.filterForm.classname,
+    level: state.filterForm.level,
   }
 }
 

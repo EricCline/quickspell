@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import dashboard from "./dashboard";
+import filterForm from "./filterForm";
 
-const dashboardApp = combineReducers({
+const quickSpellApp = combineReducers({
   dashboard,
+  filterForm
 })
 
-export default dashboardApp;
+export default quickSpellApp;
