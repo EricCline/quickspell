@@ -6,11 +6,11 @@
     <title>QuickSpell Cheatsheet</title>
     <style>
       h1 {
-        font-size: 40px
+        font-size: 60px
       }
       .column {
           float: left;
-          width: 25%;
+          width: 33%;
       }
 
       /* Clear floats after the columns */
@@ -21,7 +21,7 @@
       }
       .spell-title {
         font-weight: bold;
-        font-size: 35px; 
+        font-size: 50px; 
       }
       .level-school{
         font-style: italic;
@@ -30,7 +30,7 @@
         font-weight: bold;
       }
       .plain_text {
-        font-size: 25px
+        font-size: 35px
       }
       .row {
         page-break-inside: avoid !important;
@@ -58,7 +58,7 @@
         </div>
 
         <!-- if last column in row -->
-        {% if forloop.counter|divisibleby:"4" and not forloop.last %}
+        {% if forloop.counter|divisibleby:"3" and not forloop.last %}
         </div><div class="row">
         {% endif %}
         {% endfor %}
