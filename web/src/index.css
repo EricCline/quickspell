@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.tile-item {
+  height: auto;
+}
+
+.spell-title {
+  font-weight: bold;
+  font-size: 25px; 
+}
+.level-school{
+  font-style: italic;
+}
+.meta {
+  font-weight: bold;
+}
+
+

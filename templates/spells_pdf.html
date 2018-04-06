@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>QuickSpell Cheatsheet</title>
+    <style>
+      h1 {
+        font-size: 40px
+      }
+      .column {
+          float: left;
+          width: 25%;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+      .spell-title {
+        font-weight: bold;
+        font-size: 35px; 
+      }
+      .level-school{
+        font-style: italic;
+      }
+      .meta {
+        font-weight: bold;
+      }
+      .plain_text {
+        font-size: 25px
+      }
+      .row {
+        page-break-inside: avoid !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>{{ classname }} Spells (Through Level {{ level }})</h1>
+
+    <div class="row">
+        {% for spell in spells %}
+        <div class="column">
+          <div class="spell-title">{{spell.name}}</div>
+          <div class="level-school plain_text">{{spell.level_school}}</div>
+          <div> <span class="meta plain_text">Casting Time:</span> <span class='plain_text'>{{spell.casting_time}}</span></div>
+          <div> <span class="meta plain_text">Range:</span> <span class='plain_text'>{{spell.range}}</span></div>
+          <div> <span class="meta plain_text">Components:</span> <span class='plain_text'>{{spell.components}}</span></div>
+          <div> <span class="meta plain_text">Duration:</span> <span class='plain_text'>{{spell.duration}}</span></div>
+          <br></br>
+          {% for description_part in spell.description %}
+            <div class='plain_text'>{{description_part}}</div>
+          {% endfor %}
+          <br></br>
+          <br></br>
+        </div>
+
+        <!-- if last column in row -->
+        {% if forloop.counter|divisibleby:"4" and not forloop.last %}
+        </div><div class="row">
+        {% endif %}
+        {% endfor %}
+    </div>
+  </body>
+</html>
