@@ -7,7 +7,6 @@ import FilterForm from './FilterForm';
 import FilterSubmit from './FilterSubmit';
 import PdfSubmit from './PdfSubmit';
 
-
 class Dashboard extends Component {
   submitFilter = (e) => {
     e.preventDefault();
