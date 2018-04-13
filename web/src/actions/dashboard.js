@@ -12,7 +12,7 @@ export const fetchSpells = (classname="", level="") => {
           }
           return 1;
         });
-        return dispatch({
+        dispatch({
           type: 'FETCH_SPELLS',
           spells
         })

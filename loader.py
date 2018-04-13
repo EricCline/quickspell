@@ -25,13 +25,5 @@ class Spells:
             spell.save()
 
 
-    def spells_for(self, class_name, max_level):
-        return sorted([
-            spell for spell in self.spells
-            if spell.class_match(class_name)
-            and spell.level <= max_level
-        ])
-
-
 if __name__ == '__main__':
     Spells()

@@ -2,7 +2,7 @@ import os
 import json
 
 from django.views import View
-from django.template.loader import get_template 
+from django.template.loader import get_template
 from django.http import HttpResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt

@@ -15,9 +15,7 @@ class FilterForm extends Component {
           id="class"
           value={classname}
           placeholder="Enter class here..."
-          onChange={(e) => this.props.updateClassname(
-            e.target.value
-          )}
+          onChange={(e) => this.props.updateClassname(e.target.value)}
           required />
         </div>
         <div>
