@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {Grid, Col, Row} from 'react-bootstrap';
 
 import {dashboard} from "../actions";
 import SpellList from './SpellList';
 import FilterForm from './FilterForm';
 import FilterSubmit from './FilterSubmit';
 import PdfSubmit from './PdfSubmit';
+
 
 class Dashboard extends Component {
   submitFilter = (e) => {
@@ -25,12 +27,25 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <h2>Welcome to Quickspell!</h2>
-        <FilterForm/>
-        <FilterSubmit onSubmit={this.submitFilter}/>
-        <PdfSubmit onSubmit={this.spellsToPdf}/>
-        <hr/>
-        <SpellList spells={this.props.spells}/>
+      <Grid fluid>
+        <Row className="show-grid">
+          <Col md={24}>
+            <h2>Welcome to Quickspell!</h2>
+            <hr/>
+          </Col>
+        </Row>
+        <Row className="show-grid">
+          <Col md={12}>
+            <h2>Spell Selector</h2>
+            <hr/>
+            <SpellList spells={this.props.spells}/>
+          </Col>
+          <Col md={12}>
+            <h2>Selected Spells</h2>
+            <hr/>
+          </Col>
+        </Row>
+      </Grid>
       </div>
     )
   }

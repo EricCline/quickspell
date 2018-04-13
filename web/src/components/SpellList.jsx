@@ -10,9 +10,7 @@ export default class SpellList extends Component {
 
   render() {
     return (
-      <TileLayout columns={3}>
-        {this.props.spells.map(spell => (this.renderSpell(spell)))}
-      </TileLayout>
+      this.props.spells.map(spell => (this.renderSpell(spell)))
     )
   }
 }
