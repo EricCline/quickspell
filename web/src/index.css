@@ -10,10 +10,14 @@ body {
 
 .spell-title {
   font-weight: bold;
-  font-size: 25px; 
+  font-size: 25px;
+}
+.spell-button {
+  float: right
 }
 .level-school{
   font-style: italic;
+
 }
 .meta {
   font-weight: bold;

@@ -3,12 +3,18 @@ import {Panel} from 'react-bootstrap';
 
 export default class Spell extends Component {
 
+  handleClick = (e) => {
+    e.stopPropagation();
+    this.props.action(this.props.spell);
+  }
+
   render() {
     return (
 	<Panel>
           <Panel.Heading>
             <Panel.Title toggle>
-              {this.props.spell.name} - {this.props.spell.level_school}
+              <span>{this.props.spell.name} - {this.props.spell.level_school}</span>
+              <span className='spell-button' onClick={this.handleClick}>{this.props.actionName}</span>
             </Panel.Title>
           </Panel.Heading>
           <Panel.Collapse>

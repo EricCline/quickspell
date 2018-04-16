@@ -1,5 +1,19 @@
 import FileSaver from 'file-saver';
 
+export const selectSpell = (spell) => {
+  return {
+    type: 'SELECT_SPELL',
+    spell
+  }
+}
+
+export const removeSpell = (spell) => {
+  return {
+    type: 'REMOVE_SPELL',
+    spell
+  }
+}
+
 export const fetchSpells = (classname="", level="") => {
   return dispatch => {
     let headers = {"Content-Type": "application/json"};

@@ -29,20 +29,21 @@ class Dashboard extends Component {
       <div>
       <Grid fluid>
         <Row className="show-grid">
-          <Col md={24}>
+          <Col md={12}>
             <h2>Welcome to Quickspell!</h2>
             <hr/>
           </Col>
         </Row>
         <Row className="show-grid">
-          <Col md={12}>
+          <Col md={6}>
             <h2>Spell Selector</h2>
             <hr/>
-            <SpellList spells={this.props.spells}/>
+            <SpellList spells={this.props.spells} spellAction={this.props.selectSpell} actionName="Add Spell"/>
           </Col>
-          <Col md={12}>
+          <Col md={6}>
             <h2>Selected Spells</h2>
             <hr/>
+            <SpellList spells={this.props.selectedSpells} spellAction={this.props.removeSpell} actionName="Remove Spell"/>
           </Col>
         </Row>
       </Grid>
@@ -54,6 +55,7 @@ class Dashboard extends Component {
 const mapStateToProps = state => {
   return {
     spells: state.dashboard.spells,
+    selectedSpells: state.dashboard.selectedSpells,
     classname: state.filterForm.classname,
     level: state.filterForm.level,
   }
@@ -66,6 +68,12 @@ const mapDispatchToProps = dispatch => {
     },
     spellsToPdf: (classname="", level="") => {
       dispatch(dashboard.spellsToPdf(classname, level));
+    },
+    selectSpell: (spell) => {
+      dispatch(dashboard.selectSpell(spell));
+    },
+    removeSpell: (spell) => {
+      dispatch(dashboard.removeSpell(spell));
     }
   }
 }

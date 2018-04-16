@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import {TileLayout} from 'pui-react-tile-layout';
 import Spell from './Spell';
 
 export default class SpellList extends Component {
 
   renderSpell(spell) {
-    return <Spell spell={spell} key={spell.name}/>
+    return <Spell
+             spell={spell}
+             key={spell.name}
+             action={this.props.spellAction}
+             actionName={this.props.actionName}
+           />
   }
 
   render() {

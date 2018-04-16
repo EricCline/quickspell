@@ -4,7 +4,7 @@ import filterForm from "./filterForm";
 
 const quickSpellApp = combineReducers({
   dashboard,
-  filterForm
+  filterForm,
 })
 
 export default quickSpellApp;
