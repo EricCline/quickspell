@@ -1,4 +1,5 @@
-"""quickspell URL Configuration
+
+"""spells URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -14,13 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include,path
-from django.views.generic import TemplateView
+from django.urls import path, re_path
+
+from spells import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
-    path(r'', TemplateView.as_view(template_name="index.html")),
-    path('api/', include('spells.urls')),
-    path('api2/', include('spells.urls2'))
+    path(r'spells/', views.SpellListView.as_view(), name='spells'),
 ]

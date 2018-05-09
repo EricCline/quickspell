@@ -1,0 +1,17 @@
+[ ] API Supports filtering or PDF by list of spell ids
+[ ] PDF lists spells out by class?, level, or alpha
+[ ] Spell lists can be ordered by name or level, and filtered by name, level, or class
+[ ] Spell lists are independently scrollable 
+[ ] Can select all spells listed as a group
+
+
+
+API Endpoints
+All Spells - GET
+/api/spells/
+
+Single Spell - GET
+/api/spells/1
+
+Filtered spells - GET, POST (returns PDF)
+/api/spells?classname=paladin&level=2&spell_ids=1,2,3,4,5

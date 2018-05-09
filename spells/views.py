@@ -6,9 +6,35 @@ from django.template.loader import get_template
 from django.http import HttpResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import generics, serializers
+
 import pdfkit
 
 from spells.models import Spell
+
+
+class SpellSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Spell
+        fields = '__all__'
+
+
+class SpellListView(generics.ListAPIView):
+    queryset = Spell.objects.all()
+    filter_fields = (
+        'level',
+        'bard',
+        'cleric',
+        'druid',
+        'paladin',
+        'ranger',
+        'sorcerer',
+        'warlock',
+        'wizard',
+    )
+    serializer_class = SpellSerializer 
+
 
 
 class FilterSpells(View):
